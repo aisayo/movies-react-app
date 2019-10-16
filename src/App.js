@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MovieList from './movieList'
+import MovieList from './MovieList'
 
 const movieData = [
   {title: "test1", release_date: "2019", category: "horror"},
