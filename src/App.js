@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList'
+import NewMovieForm from './NewMovieForm';
 
 const movieData = [
   {title: "test1", release_date: "2019", category: "horror"},
@@ -20,10 +21,17 @@ class App extends Component {
     }
   }
 
+  createMovie = (movie) => {
+    this.setState({
+      movies: this.state.movies.concat(movie)
+    })
+  }
+
   render() {
     return (
       <div>
         <MovieList movies={this.state.movies}/>
+        <NewMovieForm createMovie={this.createMovie}/>
       </div>
     )
   }
