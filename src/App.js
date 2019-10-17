@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import MovieList from './MovieList'
 import NewMovieForm from './NewMovieForm';
 
@@ -17,8 +18,22 @@ class App extends Component {
     super()
 
     this.state = {
-      movies: movieData
+      movies: [],
+      loading: false
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      loading: true
+    })
+
+    setTimeout(() => {
+      this.setState({
+        loading: true,
+        movies: movieData
+      })
+    }, 1500);
   }
 
   createMovie = (movie) => {
@@ -28,6 +43,11 @@ class App extends Component {
   }
 
   render() {
+
+    if (this.state.loading & this.state.movies.length === 0){
+      return <p>Loading...</p>
+    }
+
     return (
       <div>
         <MovieList movies={this.state.movies}/>
