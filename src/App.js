@@ -11,7 +11,6 @@ const movieData = [
   {title: "test5", release_date: "2015", category: "action"}
 ]
 
-
 class App extends Component {
 
   constructor(){
@@ -19,18 +18,15 @@ class App extends Component {
 
     this.state = {
       movies: [],
-      loading: false
+      loading: true
     }
   }
 
   componentDidMount() {
-    this.setState({
-      loading: true
-    })
 
     setTimeout(() => {
       this.setState({
-        loading: true,
+        loading: false,
         movies: movieData
       })
     }, 1500);
